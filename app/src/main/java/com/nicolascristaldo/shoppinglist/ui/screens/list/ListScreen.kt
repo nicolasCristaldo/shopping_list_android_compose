@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -14,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.nicolascristaldo.shoppinglist.R
+import com.nicolascristaldo.shoppinglist.model.Product
 import com.nicolascristaldo.shoppinglist.ui.AppViewModelProvider
 import com.nicolascristaldo.shoppinglist.ui.components.ShoppingListTopAppBar
 import com.nicolascristaldo.shoppinglist.ui.navigation.NavDestination
@@ -27,6 +29,7 @@ object ListDestination: NavDestination {
 fun ListScreen(
     navController: NavHostController,
     viewModel: ListViewModel = viewModel(factory = AppViewModelProvider.factory),
+    navigateToEdit: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val listUiState by viewModel.listUiState.collectAsState()
@@ -46,6 +49,9 @@ fun ListScreen(
                 Row(modifier = Modifier.fillMaxWidth()) {
                     Text(text = product.name)
                     Text(text = product.category)
+                    Button(onClick = { navigateToEdit(product.id) }) {
+                        
+                    }
                 }
             }
         }

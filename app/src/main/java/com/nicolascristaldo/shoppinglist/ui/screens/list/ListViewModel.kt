@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
 class ListViewModel(productsRepository: ProductsRepository): ViewModel() {
+
     val listUiState: StateFlow<ListUiState> =
         productsRepository.getAllProductsStream().map { ListUiState(it) }
             .stateIn(

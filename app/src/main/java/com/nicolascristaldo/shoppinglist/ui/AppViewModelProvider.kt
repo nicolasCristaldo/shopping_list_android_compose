@@ -1,12 +1,14 @@
 package com.nicolascristaldo.shoppinglist.ui
 
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.nicolascristaldo.shoppinglist.ShoppingListApplication
 import com.nicolascristaldo.shoppinglist.ui.screens.list.ListViewModel
 import com.nicolascristaldo.shoppinglist.ui.screens.product.add.AddProductViewModel
+import com.nicolascristaldo.shoppinglist.ui.screens.product.details.ProductDetailsViewModel
 
 object AppViewModelProvider {
     val factory = viewModelFactory {
@@ -19,6 +21,12 @@ object AppViewModelProvider {
             AddProductViewModel(shoppingListApplication().container.productsRepository)
         }
 
+        initializer {
+            ProductDetailsViewModel(
+                this.createSavedStateHandle(),
+                shoppingListApplication().container.productsRepository
+            )
+        }
     }
 }
 
