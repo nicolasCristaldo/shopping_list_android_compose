@@ -1,5 +1,6 @@
 package com.nicolascristaldo.shoppinglist.ui.screens.product
 
+import com.nicolascristaldo.shoppinglist.data.providers.CategoriesProvider
 import com.nicolascristaldo.shoppinglist.model.Product
 import java.text.NumberFormat
 
@@ -13,7 +14,7 @@ data class ProductDetails(
     val id: Int = 0,
     val name: String = "",
     val price: String = "",
-    val category: String = ""
+    val category: String = CategoriesProvider().getCategories()[0].name
 )
 
 fun ProductDetails.toProduct(): Product = Product(
@@ -38,3 +39,20 @@ fun Product.toProductDetails(): ProductDetails = ProductDetails(
     price = price.toString(),
     category = category
 )
+
+fun isValidLength(value: String): Boolean = value.length <= 22
+
+fun isValidPrice(price: String): Boolean {
+    var isValid = true
+
+    try {
+        if (price != "") {
+            price.toDouble()
+        }
+    }
+    catch(e: Exception) {
+        isValid = false
+    }
+
+    return isValid
+}

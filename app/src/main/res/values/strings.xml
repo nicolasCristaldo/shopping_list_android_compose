@@ -2,8 +2,21 @@
     <string name="app_name">Shopping List</string>
     <string name="add_product">Add Product</string>
     <string name="product_details">Product Details</string>
-    <string name="products_list">Products List</string>
+    <string name="products_list">Product List</string>
 
 
     <string name="back_button">Back Button</string>
+    <string name="edit_button">Edit Button</string>
+
+    <!--  Categories  -->
+    <string name="category_electronics">Electronics</string>
+    <string name="category_clothing">Clothing</string>
+    <string name="category_groceries">Groceries</string>
+    <string name="category_furniture">Furniture</string>
+    <string name="category_accessories">Accessories</string>
+    <string name="category_beauty">Beauty</string>
+    <string name="category_health">Health</string>
+    <string name="category_tools">Tools</string>
+    <string name="category_others">Others</string>
+
 </resources>

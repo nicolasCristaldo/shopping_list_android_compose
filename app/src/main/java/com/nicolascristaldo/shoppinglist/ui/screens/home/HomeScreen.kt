@@ -36,7 +36,7 @@ fun HomeScreen(
     ) {
         Text(
             text = stringResource(id = R.string.app_name),
-            style = MaterialTheme.typography.displaySmall,
+            style = MaterialTheme.typography.displayMedium,
             modifier = Modifier
                 .padding(bottom = dimensionResource(id = R.dimen.large_padding))
         )

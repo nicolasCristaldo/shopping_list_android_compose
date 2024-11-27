@@ -20,21 +20,42 @@ val PlusJakartaSans = FontFamily(
 
 // Set of Material typography styles to start with
 val Typography = Typography(
-    displaySmall = TextStyle(
+    displayMedium = TextStyle(
         fontFamily = LexendExa,
         fontWeight = FontWeight.ExtraBold,
-        fontSize = 38.sp,
+        fontSize = 36.sp,
         lineHeight = 40.sp,
         letterSpacing = 0.5.sp
     ),
 
+    displaySmall = TextStyle(
+        fontFamily = LexendExa,
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 28.sp,
+        lineHeight = 30.sp
+    ),
+
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = PlusJakartaSans,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp,
+        lineHeight = 20.sp
+    ),
+
+    bodyMedium = TextStyle(
+        fontFamily = PlusJakartaSans,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        lineHeight = 24.sp,
+        lineHeight = 20.sp,
         letterSpacing = 0.5.sp
-    )
+    ),
+
+    bodySmall = TextStyle(
+        fontFamily = PlusJakartaSans,
+        fontWeight = FontWeight.Light,
+        fontSize = 12.sp,
+        lineHeight = 16.sp
+    ),
     /* Other default text styles to override
     titleLarge = TextStyle(
         fontFamily = FontFamily.Default,

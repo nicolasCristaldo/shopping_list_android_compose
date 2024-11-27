@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.nicolascristaldo.shoppinglist.data.providers.CategoriesProvider
 import com.nicolascristaldo.shoppinglist.data.repositories.ProductsRepository
 import com.nicolascristaldo.shoppinglist.ui.screens.product.ProductDetails
 import com.nicolascristaldo.shoppinglist.ui.screens.product.ProductUiState
@@ -36,7 +37,7 @@ class ProductDetailsViewModel(
 
     private fun validateInput(uiState: ProductDetails = productUiState.productDetails): Boolean {
         return with(uiState) {
-            name.isNotBlank() && price.isNotBlank() && category.isNotBlank()
+            name.isNotBlank() && price.isNotBlank()
         }
     }
 

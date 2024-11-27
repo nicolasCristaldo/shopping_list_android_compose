@@ -3,27 +3,31 @@ package com.nicolascristaldo.shoppinglist.ui.screens.product.details
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.navigation.NavHostController
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.nicolascristaldo.shoppinglist.R
 import com.nicolascristaldo.shoppinglist.ui.AppViewModelProvider
+import com.nicolascristaldo.shoppinglist.ui.components.AppButton
+import com.nicolascristaldo.shoppinglist.ui.screens.product.components.DetailsInputForm
 import com.nicolascristaldo.shoppinglist.ui.components.ShoppingListTopAppBar
 import com.nicolascristaldo.shoppinglist.ui.navigation.NavDestination
 import kotlinx.coroutines.launch
 
-object ProductDetailsDestination: NavDestination {
+object ProductDetailsDestination : NavDestination {
     override val route: String = "product_details"
     override val titleRes: Int = R.string.product_details
     const val productId = "productId"
@@ -45,60 +49,64 @@ fun ProductDetailsScreen(
                 navigateUp = { navController.navigateUp() }
             )
         }
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxSize()
-        ) {
-            OutlinedTextField(
-                value = viewModel.productUiState.productDetails.name,
-                onValueChange = {
-                    viewModel.updateUiState(
-                        viewModel.productUiState.productDetails.copy(name = it)
-                    )
+    ) { innerPadding ->
+        ProductDetailsBody(
+            viewModel = viewModel,
+            onSaveClick = {
+                coroutineScope.launch {
+                    viewModel.updateProduct()
+                    navController.navigateUp()
                 }
-            )
-            OutlinedTextField(
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                value = viewModel.productUiState.productDetails.price,
-                onValueChange = {
-                    viewModel.updateUiState(
-                        viewModel.productUiState.productDetails.copy(price = it)
-                    )
+            },
+            onDeleteClick = {
+                coroutineScope.launch {
+                    viewModel.deleteProduct()
+                    navController.navigateUp()
                 }
-            )
-            OutlinedTextField(
-                value = viewModel.productUiState.productDetails.category,
-                onValueChange = {
-                    viewModel.updateUiState(
-                        viewModel.productUiState.productDetails.copy(category = it)
-                    )
-                }
-            )
-            Button(
-                onClick = {
-                    coroutineScope.launch {
-                        viewModel.updateProduct()
-                        navController.navigateUp()
-                    }
-                },
-                enabled = viewModel.productUiState.isEntryValid
-            ) {
-                Text(text = "save")
-            }
+            },
+            modifier = Modifier
+                .padding(
+                    start = innerPadding.calculateStartPadding(LocalLayoutDirection.current),
+                    end = innerPadding.calculateEndPadding(LocalLayoutDirection.current),
+                    top = innerPadding.calculateTopPadding()
+                )
+                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
+        )
+    }
+}
 
-            Button(
-                onClick = {
-                    coroutineScope.launch {
-                        viewModel.deleteProduct()
-                        navController.navigateUp()
-                    }
-                },
-                enabled = viewModel.productUiState.isEntryValid
-            ) {
-                Text(text = "delete")
-            }
+@Composable
+fun ProductDetailsBody(
+    viewModel: ProductDetailsViewModel,
+    onSaveClick: () -> Unit,
+    onDeleteClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top,
+        modifier = modifier
+    ) {
+        DetailsInputForm(
+            productDetails = viewModel.productUiState.productDetails,
+            onValueChange = viewModel::updateUiState
+        )
+        Row(
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            AppButton(
+                title = "save",
+                enabled = viewModel.productUiState.isEntryValid,
+                onClick = { onSaveClick() }
+            )
+
+            AppButton(
+                title = "delete",
+                enabled = viewModel.productUiState.isEntryValid,
+                onClick = { onDeleteClick() }
+            )
         }
     }
 }

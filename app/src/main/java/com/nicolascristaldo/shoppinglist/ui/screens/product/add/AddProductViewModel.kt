@@ -25,7 +25,7 @@ class AddProductViewModel(
 
     private fun validateInput(uiState: ProductDetails = productUiState.productDetails): Boolean {
         return with(uiState) {
-            name.isNotBlank() && price.isNotBlank() && category.isNotBlank()
+            name.isNotBlank() && price.isNotBlank()
         }
     }
 

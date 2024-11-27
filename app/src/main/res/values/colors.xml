@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--  Categories  -->
+    <color name="color_electronics">#FFBB86FC</color>
+    <color name="color_clothing">#FF6200EE</color>
+    <color name="color_groceries">#FF3700B3</color>
+    <color name="color_furniture">#FF03DAC5</color>
+    <color name="color_accessories">#FF018786</color>
+    <color name="color_beauty">#B14444</color>
+    <color name="color_health">#FFFFFFFF</color>
+    <color name="color_tools">#FFBB86FC</color>
+    <color name="color_others">#FF6200EE</color>
+
 </resources>
