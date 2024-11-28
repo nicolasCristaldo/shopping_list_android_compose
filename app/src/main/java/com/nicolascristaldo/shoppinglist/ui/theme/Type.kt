@@ -20,7 +20,7 @@ val PlusJakartaSans = FontFamily(
 
 // Set of Material typography styles to start with
 val Typography = Typography(
-    displayMedium = TextStyle(
+    displayLarge = TextStyle(
         fontFamily = LexendExa,
         fontWeight = FontWeight.ExtraBold,
         fontSize = 36.sp,
@@ -28,11 +28,18 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     ),
 
-    displaySmall = TextStyle(
+    displayMedium = TextStyle(
         fontFamily = LexendExa,
         fontWeight = FontWeight.ExtraBold,
         fontSize = 28.sp,
         lineHeight = 30.sp
+    ),
+
+    displaySmall = TextStyle(
+        fontFamily = PlusJakartaSans,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp,
+        lineHeight = 24.sp
     ),
 
     bodyLarge = TextStyle(
@@ -55,21 +62,5 @@ val Typography = Typography(
         fontWeight = FontWeight.Light,
         fontSize = 12.sp,
         lineHeight = 16.sp
-    ),
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
     )
-    */
 )

@@ -11,12 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
 import com.nicolascristaldo.shoppinglist.R
 import com.nicolascristaldo.shoppinglist.ui.components.AppButton
 import com.nicolascristaldo.shoppinglist.ui.navigation.NavDestination
-import com.nicolascristaldo.shoppinglist.ui.screens.list.ListDestination
-import com.nicolascristaldo.shoppinglist.ui.screens.product.add.AddProductDestination
 
 object HomeDestination: NavDestination {
     override val route: String = "home"
@@ -36,9 +33,8 @@ fun HomeScreen(
     ) {
         Text(
             text = stringResource(id = R.string.app_name),
-            style = MaterialTheme.typography.displayMedium,
-            modifier = Modifier
-                .padding(bottom = dimensionResource(id = R.dimen.large_padding))
+            style = MaterialTheme.typography.displayLarge,
+            modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.large_padding))
         )
 
         AppButton(

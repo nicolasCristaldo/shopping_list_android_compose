@@ -46,7 +46,7 @@ fun DetailsInputForm(
         OutlinedTextField(
             value = productDetails.name,
             onValueChange = {
-                if(isValidLength(it)) onValueChange(productDetails.copy(name = it))
+                if (isValidLength(it)) onValueChange(productDetails.copy(name = it))
             },
             label = {
                 Text(
@@ -63,7 +63,7 @@ fun DetailsInputForm(
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
             value = productDetails.price,
             onValueChange = {
-                if(isValidLength(it) && isValidPrice(it)) {
+                if (isValidLength(it) && isValidPrice(it)) {
                     onValueChange(productDetails.copy(price = it))
                 }
             },

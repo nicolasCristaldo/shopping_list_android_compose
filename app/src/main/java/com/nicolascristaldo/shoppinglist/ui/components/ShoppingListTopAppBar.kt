@@ -25,7 +25,7 @@ fun ShoppingListTopAppBar(
         title = { 
             Text(
                 text = title,
-                style = MaterialTheme.typography.displaySmall
+                style = MaterialTheme.typography.displayMedium
             )
         },
         navigationIcon = {

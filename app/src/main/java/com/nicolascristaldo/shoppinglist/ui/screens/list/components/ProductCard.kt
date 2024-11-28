@@ -1,14 +1,17 @@
 package com.nicolascristaldo.shoppinglist.ui.screens.list.components
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
@@ -19,6 +22,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -27,6 +33,8 @@ import androidx.compose.ui.unit.dp
 import com.nicolascristaldo.shoppinglist.R
 import com.nicolascristaldo.shoppinglist.data.providers.CategoriesProvider
 import com.nicolascristaldo.shoppinglist.model.Product
+import com.nicolascristaldo.shoppinglist.ui.components.CategoryIcon
+import com.nicolascristaldo.shoppinglist.ui.model.CategoriesModel
 import com.nicolascristaldo.shoppinglist.ui.screens.product.formatedPrice
 
 @Composable
@@ -47,13 +55,17 @@ fun ProductCard(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(dimensionResource(id = R.dimen.medium_padding))
         ) {
-            Image(
+            CategoryIcon(
                 painter = painterResource(
                     id = CategoriesProvider().getCategory(product.category).image
                 ),
-                contentDescription = product.category,
-                modifier = Modifier.padding(end = dimensionResource(id = R.dimen.large_padding))
+                color = colorResource(
+                    id = CategoriesProvider().getCategory(product.category).color
+                )
             )
+
+            Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.large_padding)))
+            
             Column(
                 modifier = Modifier
                     .fillMaxHeight()
@@ -95,3 +107,4 @@ fun ProductCardPreview() {
         navigateToEdit = {}
     )
 }
+

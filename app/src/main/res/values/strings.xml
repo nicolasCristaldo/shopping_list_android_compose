@@ -8,6 +8,9 @@
     <string name="back_button">Back Button</string>
     <string name="edit_button">Edit Button</string>
 
+    <string name="empty_list">Your shopping list is empty.\nAdd a product to see it here!</string>
+
+
     <!--  Categories  -->
     <string name="category_electronics">Electronics</string>
     <string name="category_clothing">Clothing</string>

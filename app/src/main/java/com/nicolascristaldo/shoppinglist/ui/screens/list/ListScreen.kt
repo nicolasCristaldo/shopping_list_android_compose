@@ -1,28 +1,16 @@
 package com.nicolascristaldo.shoppinglist.ui.screens.list
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.nicolascristaldo.shoppinglist.R
@@ -31,6 +19,7 @@ import com.nicolascristaldo.shoppinglist.model.Product
 import com.nicolascristaldo.shoppinglist.ui.AppViewModelProvider
 import com.nicolascristaldo.shoppinglist.ui.components.ShoppingListTopAppBar
 import com.nicolascristaldo.shoppinglist.ui.navigation.NavDestination
+import com.nicolascristaldo.shoppinglist.ui.screens.list.components.EmptyListScreen
 import com.nicolascristaldo.shoppinglist.ui.screens.list.components.ProductCard
 
 object ListDestination : NavDestination {
@@ -70,16 +59,18 @@ fun ListScreenBody(
     contentPadding: PaddingValues,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(
-        contentPadding = contentPadding
-    ) {
-        items(items = productList, key = { it.id }) { product ->
-
-            ProductCard(
-                product = product,
-                navigateToEdit = navigateToEdit
-            )
-
+    if (productList.isEmpty()) {
+        EmptyListScreen(modifier = Modifier.fillMaxSize())
+    } else {
+        LazyColumn(
+            contentPadding = contentPadding
+        ) {
+            items(items = productList, key = { it.id }) { product ->
+                ProductCard(
+                    product = product,
+                    navigateToEdit = navigateToEdit
+                )
+            }
         }
     }
 }
