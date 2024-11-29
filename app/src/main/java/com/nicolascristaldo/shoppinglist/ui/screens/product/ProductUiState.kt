@@ -22,8 +22,7 @@ fun ProductDetails.toProduct(): Product = Product(
     name = name,
     price = try {
         price.toDouble()
-    }
-    catch (e: Exception) {
+    } catch (e: Exception) {
         0.0
     },
     category = category
@@ -54,8 +53,7 @@ fun isValidPrice(price: String): Boolean {
         if (price != "") {
             price.toDouble()
         }
-    }
-    catch(e: Exception) {
+    } catch (e: Exception) {
         isValid = false
     }
 

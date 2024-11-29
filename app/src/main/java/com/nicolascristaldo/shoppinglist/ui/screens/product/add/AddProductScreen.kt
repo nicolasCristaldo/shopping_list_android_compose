@@ -1,6 +1,5 @@
 package com.nicolascristaldo.shoppinglist.ui.screens.product.add
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.calculateEndPadding
@@ -31,7 +30,6 @@ object AddProductDestination : NavDestination {
     override val titleRes: Int = R.string.add_product
 }
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun AddProductScreen(
     navController: NavHostController,

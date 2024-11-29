@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.nicolascristaldo.shoppinglist.R
 
 @Composable
@@ -25,7 +25,7 @@ fun CategoryIcon(
         contentAlignment = Alignment.Center
     ){
         Canvas(
-            modifier = Modifier.size(50.dp)
+            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_circle_size))
         ) {
             drawCircle(
                 color = color
@@ -34,7 +34,7 @@ fun CategoryIcon(
         Icon(
             painter = painter,
             contentDescription = null,
-            modifier = Modifier.size(35.dp)
+            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_size))
         )
     }
 }

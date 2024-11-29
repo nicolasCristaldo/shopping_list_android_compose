@@ -8,5 +8,7 @@
     <dimen name="extra_large_padding">32dp</dimen>
 
     <dimen name="icon_large_size">75dp</dimen>
+    <dimen name="icon_circle_size">50dp</dimen>
+    <dimen name="icon_size">35dp</dimen>
 
 </resources>

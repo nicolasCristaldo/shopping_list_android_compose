@@ -8,8 +8,6 @@ interface ProductsRepository {
 
     fun getProductStream(id: Int): Flow<Product>
 
-//    fun getProductsByCategoryStream(category: String): Flow<List<Product>>
-
     suspend fun insert(product: Product)
 
     suspend fun update(product: Product)

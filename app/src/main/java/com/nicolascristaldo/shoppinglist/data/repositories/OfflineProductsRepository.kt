@@ -10,9 +10,6 @@ class OfflineProductsRepository(private val productsDao: ProductsDao): ProductsR
 
     override fun getProductStream(id: Int): Flow<Product> = productsDao.getItem(id)
 
-//    override fun getProductsByCategoryStream(category: String): Flow<List<Product>> =
-//        productsDao.getProductsByCategory(category)
-
     override suspend fun insert(product: Product) = productsDao.insert(product)
 
     override suspend fun update(product: Product) = productsDao.update(product)

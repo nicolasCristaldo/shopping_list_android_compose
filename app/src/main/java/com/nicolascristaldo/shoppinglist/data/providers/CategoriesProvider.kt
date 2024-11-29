@@ -53,7 +53,7 @@ class CategoriesProvider {
     )
 
     fun getCategory(name: String): CategoriesModel {
-        return when(name) {
+        return when (name) {
             "Accessories" -> getCategories()[1]
             "Electronics" -> getCategories()[2]
             "Clothing" -> getCategories()[3]

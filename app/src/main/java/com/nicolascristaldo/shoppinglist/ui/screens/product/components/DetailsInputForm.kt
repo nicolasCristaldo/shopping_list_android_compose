@@ -2,7 +2,8 @@ package com.nicolascristaldo.shoppinglist.ui.screens.product.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -20,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.nicolascristaldo.shoppinglist.R
@@ -50,14 +52,15 @@ fun DetailsInputForm(
             },
             label = {
                 Text(
-                    text = "name",
+                    text = stringResource(id = R.string.name),
                     style = MaterialTheme.typography.bodySmall
                 )
             },
             singleLine = true,
-            shape = MaterialTheme.shapes.medium,
-            modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.medium_padding))
+            shape = MaterialTheme.shapes.medium
         )
+
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.medium_padding)))
 
         OutlinedTextField(
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
@@ -69,19 +72,19 @@ fun DetailsInputForm(
             },
             label = {
                 Text(
-                    text = "price",
+                    text = stringResource(id = R.string.price),
                     style = MaterialTheme.typography.bodySmall
                 )
             },
             singleLine = true,
-            shape = MaterialTheme.shapes.medium,
-            modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.medium_padding))
+            shape = MaterialTheme.shapes.medium
         )
+
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.medium_padding)))
 
         ExposedDropdownMenuBox(
             expanded = dropdownIsExpanded,
-            onExpandedChange = { dropdownIsExpanded = !dropdownIsExpanded },
-            modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.large_padding))
+            onExpandedChange = { dropdownIsExpanded = !dropdownIsExpanded }
         ) {
             OutlinedTextField(
                 value = productDetails.category,
@@ -89,7 +92,7 @@ fun DetailsInputForm(
                 readOnly = true,
                 label = {
                     Text(
-                        text = "category",
+                        text = stringResource(id = R.string.category),
                         style = MaterialTheme.typography.bodySmall
                     )
                 },
@@ -122,6 +125,7 @@ fun DetailsInputForm(
                 }
             }
         }
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.large_padding)))
     }
 }
 

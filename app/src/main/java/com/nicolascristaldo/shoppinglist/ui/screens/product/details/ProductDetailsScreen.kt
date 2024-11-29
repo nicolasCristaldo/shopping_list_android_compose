@@ -1,6 +1,5 @@
 package com.nicolascristaldo.shoppinglist.ui.screens.product.details
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,7 +43,6 @@ object ProductDetailsDestination : NavDestination {
     val routeWithArgs = "$route/{$productId}"
 }
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun ProductDetailsScreen(
     navController: NavHostController,
@@ -127,7 +125,7 @@ fun ProductDetailsBody(
             )
         }
     }
-    if(isDeleteDialogVisible) {
+    if (isDeleteDialogVisible) {
         DeleteConfirmationDialog(
             onConfirm = onDeleteClick,
             onDismiss = { isDeleteDialogVisible = false },
