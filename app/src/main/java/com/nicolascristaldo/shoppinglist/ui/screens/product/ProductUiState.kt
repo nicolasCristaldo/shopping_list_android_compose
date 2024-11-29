@@ -20,7 +20,12 @@ data class ProductDetails(
 fun ProductDetails.toProduct(): Product = Product(
     id = id,
     name = name,
-    price = price.toDouble(),
+    price = try {
+        price.toDouble()
+    }
+    catch (e: Exception) {
+        0.0
+    },
     category = category
 )
 

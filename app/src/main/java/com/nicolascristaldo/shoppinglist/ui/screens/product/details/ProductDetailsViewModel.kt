@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nicolascristaldo.shoppinglist.data.providers.CategoriesProvider
 import com.nicolascristaldo.shoppinglist.data.repositories.ProductsRepository
 import com.nicolascristaldo.shoppinglist.ui.screens.product.ProductDetails
 import com.nicolascristaldo.shoppinglist.ui.screens.product.ProductUiState

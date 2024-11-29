@@ -22,7 +22,6 @@ class ListViewModel(productsRepository: ProductsRepository) : ViewModel() {
 
     var selectedCategories = mutableStateListOf<CategoriesModel>()
 
-
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
