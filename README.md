@@ -44,3 +44,11 @@ Edit or delete an existing product entry.
 - **Room** – SQLite persistence library
 - **MVVM Architecture** – Clean separation of concerns
 - **StateFlow & ViewModel** – For reactive state handling
+
+## 📥 Download
+
+You can download the APK from the releases folder:
+
+[Download APK](https://github.com/nicolasCristaldo/shopping_list_android_compose/blob/main/releases/app-release.apk)
+
+**Note**: Ensure your device allows installation from unknown sources to install the APK. After clicking the link, select the "Download" button to get the file.
